@@ -1,5 +1,5 @@
 <template>
-  <div class="countrys container">
+  <div style="float:left;" class="countrys container">
     <Alert v-if="alert" v-bind:message="alert" />
     <h1 class ="page-header">Manage Countrys</h1>
     <input class="form-control" placeholder="Enter Country" v-model="filterInput">
@@ -42,7 +42,7 @@
           <td>{{country.HeadOfState}}</td>
           <td>{{country.Capital}}</td>
           <td>{{country.Code2}}</td>
-          <td><router-link class="btn btn-default" v-bind:to="'/country/'+country.Code">Edit</router-link></td>
+          <td><router-link class="btn btn-default" v-bind:to="'/country/'+country.Code">View</router-link></td>
         </tr>
       </tbody>
     </table>

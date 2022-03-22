@@ -31,32 +31,30 @@ const router = new VueRouter({
 new Vue({
   router,
   template: `
-    <div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">vCountry</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><router-link to="/">Home</router-link></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><router-link to="/about">About</router-link></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-md-0 navbar-right">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><router-link to="/add">Add Country</router-link></a>
-          </li>
-        </ul>
-        
-      </div>
-    </div>
-  </nav>
+<div id="app">
+<nav class="navbar navbar-inverse">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Country</a>
+  </div>
+  <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><router-link to="/add">Add Customer</router-link></li>
+    </ul>
+  </div><!--/.nav-collapse -->
+</div>
+</nav>
       <router-view></router-view>
-    </div>
+</div>
   `
 }).$mount('#app')

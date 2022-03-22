@@ -66,6 +66,7 @@
                <input type="text" class="form-control" placeholder="Code2" v-model="country.Code2">
            </div>
         </div>
+        <br />
         <button type="submit" class="btn btn-primary">Submit</button>
    </form>
   </div>
