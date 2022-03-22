@@ -7,6 +7,9 @@ import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
 import Countrys from './components/Countrys'
 import About from './components/About'
+import Add from './components/Add'
+import Edit from './components/Edit'
+import CountryDetails from './components/CountryDetails'
 
 Vue.use(vueResource)
 Vue.use(VueRouter)
@@ -16,7 +19,10 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     {path:'/', component: Countrys},
-    {path: '/about', component: About}
+    {path: '/about', component: About},
+    {path: '/add', component: Add},
+    {path:'/country/:Code', component: CountryDetails},
+    {path:'/edit/:Code', component: Edit},
   ]
 
 })
@@ -40,14 +46,13 @@ new Vue({
           <li class="nav-item">
             <a class="nav-link" href="#"><router-link to="/about">About</router-link></a>
           </li>
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0 navbar-right">
           <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a class="nav-link active" aria-current="page" href="#"><router-link to="/add">Add Country</router-link></a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        
       </div>
     </div>
   </nav>

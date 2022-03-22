@@ -63,25 +63,25 @@ $app->get('/api/country/{code}' , function(Request $request, Response $response)
 
 // Add Country
 $app->post('/api/country/add' , function(Request $request, Response $response){
-    $code = $request->getParam('code');
-    $name = $request->getParam('name');
-    $continent = $request->getParam('continent');
-    $region = $request->getParam('region');
-    $surfacearea = $request->getParam('surfacearea');
-    $indepyear = $request->getParam('indepyear');
-    $population = $request->getParam('population');
-    $lifeexpectancy = $request->getParam('lifeexpectancy');
-    $gnp = $request->getParam('gnp');
-    $gnpold = $request->getParam('gnpold');
-    $localname = $request->getParam('localname');
-    $governmentform = $request->getParam('governmentform');
-    $headofstate = $request->getParam('headofstate');
-    $capital = $request->getParam('capital');
-    $code2 = $request->getParam('code2');
+    $Code = $request->getParam('Code');
+    $Name = $request->getParam('Name');
+    $Continent = $request->getParam('Continent');
+    $Region = $request->getParam('Region');
+    $SurfaceArea = $request->getParam('SurfaceArea');
+    $IndepYear = $request->getParam('IndepYear');
+    $Population = $request->getParam('Population');
+    $LifeExpectancy = $request->getParam('LifeExpectancy');
+    $GNP = $request->getParam('GNP');
+    $GNPOld = $request->getParam('GNPOld');
+    $LocalName = $request->getParam('LocalName');
+    $GovernmentForm = $request->getParam('GovernmentForm');
+    $HeadOfState = $request->getParam('HeadOfState');
+    $Capital = $request->getParam('Capital');
+    $Code2 = $request->getParam('Code2');
 
     
-    $sql = "INSERT INTO country (code,name,continent,region,surfacearea,indepyear,population,lifeexpectancy,gnp,gnpold,localname,governmentform,headofstate,capital,code2) VALUES
-    (:code,:name,:continent,:region,:surfacearea,:indepyear,:population,:lifeexpectancy,:gnp,:gnpold,:localname,:governmentform,:headofstate,:capital,:code2)";
+    $sql = "INSERT INTO country (Code,Name,Continent,Region,SurfaceArea,IndepYear,Population,LifeExpectancy,GNP,GNPOld,LocalName,GovernmentForm,HeadOfState,Capital,Code2) VALUES
+    (:Code,:Name,:Continent,:Region,:SurfaceArea,:IndepYear,:Population,:LifeExpectancy,:GNP,:GNPOld,:LocalName,:GovernmentForm,:HeadOfState,:Capital,:Code2)";
 
     try{
         //get DB Object
@@ -91,21 +91,21 @@ $app->post('/api/country/add' , function(Request $request, Response $response){
 
         $stmt = $db->prepare($sql);
 
-        $stmt->bindParam('code', $code);
-        $stmt->bindParam('name', $name);
-        $stmt->bindParam('continent', $continent);
-        $stmt->bindParam('region', $region);
-        $stmt->bindParam('surfacearea', $surfacearea);
-        $stmt->bindParam('indepyear', $indepyear);
-        $stmt->bindParam('population', $population);
-        $stmt->bindParam('lifeexpectancy', $lifeexpectancy);
-        $stmt->bindParam('gnp', $gnp);
-        $stmt->bindParam('gnpold', $gnpold);
-        $stmt->bindParam('localname', $localname);
-        $stmt->bindParam('governmentform', $governmentform);
-        $stmt->bindParam('headofstate', $headofstate);
-        $stmt->bindParam('capital', $capital);
-        $stmt->bindParam('code2', $code2);
+        $stmt->bindParam('Code', $Code);
+        $stmt->bindParam('Name', $Name);
+        $stmt->bindParam('Continent', $Continent);
+        $stmt->bindParam('Region', $Region);
+        $stmt->bindParam('SurfaceArea', $SurfaceArea);
+        $stmt->bindParam('IndepYear', $IndepYear);
+        $stmt->bindParam('Population', $Population);
+        $stmt->bindParam('LifeExpectancy', $LifeExpectancy);
+        $stmt->bindParam('GNP', $GNP);
+        $stmt->bindParam('GNPOld', $GNPOld);
+        $stmt->bindParam('LocalName', $LocalName);
+        $stmt->bindParam('GovernmentForm', $GovernmentForm);
+        $stmt->bindParam('HeadOfState', $HeadOfState);
+        $stmt->bindParam('Capital', $Capital);
+        $stmt->bindParam('Code2', $Code2);
 
         $stmt->execute();
 
@@ -117,42 +117,42 @@ $app->post('/api/country/add' , function(Request $request, Response $response){
 });
 
 // Update Country
-$app->put('/api/country/update/{code1}' , function(Request $request, Response $response){
-    $code1 = $request->getAttribute('code1');
-    $code = $request->getParam('code');
-    $name = $request->getParam('name');
-    $continent = $request->getParam('continent');
-    $region = $request->getParam('region');
-    $surfacearea = $request->getParam('surfacearea');
-    $indepyear = $request->getParam('indepyear');
-    $population = $request->getParam('population');
-    $lifeexpectancy = $request->getParam('lifeexpectancy');
-    $gnp = $request->getParam('gnp');
-    $gnpold = $request->getParam('gnpold');
-    $localname = $request->getParam('localname');
-    $governmentform = $request->getParam('governmentform');
-    $headofstate = $request->getParam('headofstate');
-    $capital = $request->getParam('capital');
-    $code2 = $request->getParam('code2');
+$app->put('/api/country/update/{Code1}' , function(Request $request, Response $response){
+    $Code1 = $request->getAttribute('Code1');
+    $Code = $request->getParam('Code');
+    $Name = $request->getParam('Name');
+    $Continent = $request->getParam('Continent');
+    $Region = $request->getParam('Region');
+    $SurfaceArea = $request->getParam('SurfaceArea');
+    $IndepYear = $request->getParam('IndepYear');
+    $Population = $request->getParam('Population');
+    $LifeExpectancy = $request->getParam('LifeExpectancy');
+    $GNP = $request->getParam('GNP');
+    $GNPOld = $request->getParam('GNPOld');
+    $LocalName = $request->getParam('LocalName');
+    $GovernmentForm = $request->getParam('GovernmentForm');
+    $HeadOfState = $request->getParam('HeadOfState');
+    $Capital = $request->getParam('Capital');
+    $Code2 = $request->getParam('Code2');
 
     
     $sql = "UPDATE country SET
-                code = :code,
-                name = :name,
-                continent = :continent,
-                region = :region,
-                surfacearea = :surfacearea,
-                indepyear = :indepyear,
-                population = :population,
-                lifeexpectancy = :lifeexpectancy,
-                gnp = :gnp,
-                gnpold = :gnpold,
-                localname = :localname,
-                governmentform = :governmentform,
-                headofstate = :headofstate,
-                capital = :capital,
-                code2 = :code2
-            WHERE code = '$code1'";
+                Code = :Code,
+                Name = :Name,
+                Continent = :Continent,
+                Region = :Region,
+                SurfaceArea = :SurfaceArea,
+                IndepYear = :IndepYear,
+                Population = :Population,
+                LifeExpectancy = :LifeExpectancy,
+                GNP = :GNP,
+                GNPOld = :GNPOld,
+                LocalName = :LocalName,
+                GovernmentForm = :GovernmentForm,
+                HeadOfState = :HeadOfState,
+                Capital = :Capital,
+                Code2 = :Code2
+            WHERE Code = '$Code1'";
 
     try{
         //get DB Object
@@ -162,21 +162,21 @@ $app->put('/api/country/update/{code1}' , function(Request $request, Response $r
 
         $stmt = $db->prepare($sql);
 
-        $stmt->bindParam(':code', $code);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':continent', $continent);
-        $stmt->bindParam(':region', $region);
-        $stmt->bindParam(':surfacearea', $surfacearea);
-        $stmt->bindParam(':indepyear', $indepyear);
-        $stmt->bindParam(':population', $population);
-        $stmt->bindParam(':lifeexpectancy', $lifeexpectancy);
-        $stmt->bindParam(':gnp', $gnp);
-        $stmt->bindParam(':gnpold', $gnpold);
-        $stmt->bindParam(':localname', $localname);
-        $stmt->bindParam(':governmentform', $governmentform);
-        $stmt->bindParam(':headofstate', $headofstate);
-        $stmt->bindParam(':capital', $capital);
-        $stmt->bindParam(':code2', $code2);
+        $stmt->bindParam(':Code', $Code);
+        $stmt->bindParam(':Name', $Name);
+        $stmt->bindParam(':Continent', $Continent);
+        $stmt->bindParam(':Region', $Region);
+        $stmt->bindParam(':SurfaceArea', $SurfaceArea);
+        $stmt->bindParam(':IndepYear', $IndepYear);
+        $stmt->bindParam(':Population', $Population);
+        $stmt->bindParam(':LifeExpectancy', $LifeExpectancy);
+        $stmt->bindParam(':GNP', $GNP);
+        $stmt->bindParam(':GNPOld', $GNPOld);
+        $stmt->bindParam(':LocalName', $LocalName);
+        $stmt->bindParam(':GovernmentForm', $GovernmentForm);
+        $stmt->bindParam(':HeadOfState', $HeadOfState);
+        $stmt->bindParam(':Capital', $Capital);
+        $stmt->bindParam(':Code2', $Code2);
 
         $stmt->execute();
 

@@ -1,6 +1,9 @@
 <template>
   <div class="countrys container">
+    <Alert v-if="alert" v-bind:message="alert" />
     <h1 class ="page-header">Manage Countrys</h1>
+    <input class="form-control" placeholder="Enter Country" v-model="filterInput">
+    <br />
     <table class="table table-striped">
       <thead>
         <tr>
@@ -23,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="country in countrys" :key="country.Code">
+        <tr v-for="country in filterBy(countrys, filterInput)" :key="country.Code">
           <td>{{country.Code}}</td>
           <td>{{country.Name}}</td>
           <td>{{country.Continent}}</td>
@@ -39,7 +42,7 @@
           <td>{{country.HeadOfState}}</td>
           <td>{{country.Capital}}</td>
           <td>{{country.Code2}}</td>
-          <td></td>
+          <td><router-link class="btn btn-default" v-bind:to="'/country/'+country.Code">Edit</router-link></td>
         </tr>
       </tbody>
     </table>
@@ -47,11 +50,14 @@
 </template>
 
 <script>
+import Alert from './Alert';
 export default {
   name: 'countrys',
   data () {
     return {
-      countrys: []
+      countrys: [],
+      alert:'',
+      filterInput: ''
     }
   },
   methods : {
@@ -60,10 +66,25 @@ export default {
       .then(function(response){
         this.countrys = JSON.parse(JSON.stringify(response.body));
       });
+    },
+    filterBy(list, value){
+      value = value.charAt(0).toUpperCase() + value.slice(1);
+      return list.filter(function(country){
+        return country.Name.indexOf(value) > -1;
+      });
     }
   },
   created: function(){
+    if(this.$route.query.alert){
+      this.alert = this.$route.query.alert;
+    }
     this.fetchCountrys();
+  },
+  updated: function(){
+    this.fetchCountrys();
+  },
+  components: {
+    Alert
   }
 }
 </script>
