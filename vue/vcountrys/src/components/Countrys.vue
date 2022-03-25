@@ -76,7 +76,7 @@ export default {
   },
   created: function(){
     if(this.$route.query.alert){
-      this.alert = this.$route.query.alert;
+       this.alert = this.$route.query.alert;
     }
     this.fetchCountrys();
   },

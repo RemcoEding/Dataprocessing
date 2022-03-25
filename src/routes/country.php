@@ -211,3 +211,287 @@ $app->delete('/api/country/delete/{code}' , function(Request $request, Response 
     }
 
 });
+
+// Get All City
+$app->get('/api/city' , function(Request $request, Response $response){
+    $sql = "SELECT * FROM city";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->query($sql);
+        $worlds = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($worlds);
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Get Single City
+$app->get('/api/city/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    
+    $sql = "SELECT * FROM city WHERE ID = '$ID'";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->query($sql);
+        $world = $stmt->fetch(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($world);
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Add City
+$app->post('/api/city/add' , function(Request $request, Response $response){
+    $ID = $request->getParam('ID');
+    $Name = $request->getParam('Name');
+    $CountryCode = $request->getParam('CountryCode');
+    $District = $request->getParam('District');
+    $Population = $request->getParam('Population');
+
+    
+    $sql = "INSERT INTO city (ID,Name,CountryCode,District,Population) VALUES
+    (:ID,:Name,:CountryCode,:District,:Population)";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam('ID', $ID);
+        $stmt->bindParam('Name', $Name);
+        $stmt->bindParam('CountryCode', $CountryCode);
+        $stmt->bindParam('District', $District);
+        $stmt->bindParam('Population', $Population);
+
+        $stmt->execute();
+
+        echo '{"notice": {"text": "City Added"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+// Update City
+$app->put('/api/city/update/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    $Name = $request->getParam('Name');
+    $CountryCode = $request->getParam('CountryCode');
+    $District = $request->getParam('District');
+    $Population = $request->getParam('Population');
+    
+
+    
+    $sql = "UPDATE city SET
+                Name = :Name,
+                CountryCode = :CountryCode,
+                District = :District,
+                Population = :Population
+            WHERE ID = $ID";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':Name', $Name);
+        $stmt->bindParam(':CountryCode', $CountryCode);
+        $stmt->bindParam(':District', $District);
+        $stmt->bindParam(':Population', $Population);
+
+        $stmt->execute();
+
+        echo '{"notice": {"text": "City Updated"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Delete City
+$app->delete('/api/city/delete/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    
+    $sql = "DELETE FROM city WHERE ID = $ID";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $db = null;
+
+        echo '{"notice": {"text": "City Deleted"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Get All Countrylanguage
+$app->get('/api/countrylanguage' , function(Request $request, Response $response){
+    $sql = "SELECT * FROM countrylanguage";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->query($sql);
+        $worlds = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($worlds);
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Get Single Countrylanguage
+$app->get('/api/countrylanguage/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    
+    $sql = "SELECT * FROM countrylanguage WHERE ID = '$ID'";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->query($sql);
+        $world = $stmt->fetch(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($world);
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Add Countrylanguage
+$app->post('/api/countrylanguage/add' , function(Request $request, Response $response){
+    $CountryCode = $request->getParam('CountryCode');
+    $Language = $request->getParam('Language');
+    $IsOfficial = $request->getParam('IsOfficial');
+    $Percentage = $request->getParam('Percentage');
+
+    
+    $sql = "INSERT INTO countrylanguage (CountryCode,Language,IsOfficial,Percentage) VALUES
+    (:CountryCode,:Language,:IsOfficial,:Percentage)";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam('CountryCode', $CountryCode);
+        $stmt->bindParam('Language', $Language);
+        $stmt->bindParam('IsOfficial', $IsOfficial);
+        $stmt->bindParam('Percentage', $Percentage);
+
+        $stmt->execute();
+
+        echo '{"notice": {"text": "Countrylanguage Added"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+// Update Countrylanguage
+$app->put('/api/countrylanguage/update/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    $CountryCode = $request->getParam('CountryCode');
+    $Language = $request->getParam('Language');
+    $IsOfficial = $request->getParam('IsOfficial');
+    $Percentage = $request->getParam('Percentage');
+    
+
+    
+    $sql = "UPDATE countrylanguage SET
+                CountryCode = :CountryCode,
+                Language = :Language,
+                IsOfficial = :IsOfficial,
+                Percentage = :Percentage
+            WHERE ID = $ID";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':CountryCode', $CountryCode);
+        $stmt->bindParam(':Language', $Language);
+        $stmt->bindParam(':IsOfficial', $IsOfficial);
+        $stmt->bindParam(':Percentage', $Percentage);
+
+        $stmt->execute();
+
+        echo '{"notice": {"text": "Countrylanguage Updated"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});
+
+// Delete Countrylanguage
+$app->delete('/api/countrylanguage/delete/{ID}' , function(Request $request, Response $response){
+    $ID = $request->getAttribute('ID');
+    
+    $sql = "DELETE FROM countrylanguage WHERE ID = $ID";
+
+    try{
+        //get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $db = null;
+
+        echo '{"notice": {"text": "Countrylanguage Deleted"}';
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+
+});

@@ -1,9 +1,9 @@
 <template>
   <div class="details container">
-      <router-link to="/">Back</router-link>
+      <router-link to="/country">Back</router-link>
    <h1 class = "page-header">{{country.Name}}
        <span class="pull-right">
-           <router-link class="btn btn-primary" v-bind:to="'/edit/'+country.Code">Edit</router-link>
+           <router-link class="btn btn-primary" v-bind:to="'/editcountry/'+country.Code">Edit</router-link>
            <button class="btn btn-danger" v-on:click="deleteCountry(country.Code)">Delete</button>
         </span>
    </h1>
@@ -45,7 +45,7 @@ export default {
       deleteCountry(Code){
           this.$http.delete('http://localhost/dataprocessing/public/api/country/delete/'+Code)
         .then(function(response){
-            this.$router.push({path: '/', query: {alert: 'Country Deleted'}});
+            this.$router.push({path: '/country', query: {alert: 'Country Deleted'}});
         });
       }
   },

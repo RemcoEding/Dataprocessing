@@ -15,5 +15,6 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
 });
 
 require '../src/routes/country.php';
+//require '../src/routes/city.php';
 
 $app->run();

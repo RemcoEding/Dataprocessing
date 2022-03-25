@@ -1,8 +1,8 @@
 <template>
-  <div class="edit container">
-    <Alert v-if="alert" v-bind:message="alert" />
-   <h1 class = "page-header">Edit Country</h1>
-   <form v-on:submit="updateCountry">
+  <div class="addcountry container">
+      <Alert v-if="alert" v-bind:message="alert" />
+   <h1 class = "page-header">Add Country</h1>
+   <form v-on:submit="addCountry">
        <div class="well">
            <h4>Country</h4>
            <div class="form-group">
@@ -58,8 +58,8 @@
                <input type="text" class="form-control" placeholder="Headofstate" v-model="country.HeadOfState">
            </div>
            <div class="form-group">
-               <label>Capital</label>
-               <input type="text" class="form-control" placeholder="Capital" v-model="country.Capital">
+               <label>Capital (population)</label>
+               <input type="text" class="form-control" placeholder="Capital (population)" v-model="country.Capital">
            </div>
            <div class="form-group">
                <label>Code2</label>
@@ -75,7 +75,7 @@
 <script>
 import Alert from './Alert'
 export default {
-  name: 'add',
+  name: 'addcountry',
   data () {
     return {
       country: {},
@@ -83,17 +83,11 @@ export default {
     }
   },
   methods: {
-      fetchCountry(Code){
-          this.$http.get('http://localhost/dataprocessing/public/api/country/'+Code)
-        .then(function(response){
-            this.country = JSON.parse(JSON.stringify(response.body));
-        });
-      },
-      updateCountry(e){
+      addCountry(e){
           if(!this.country.Code || !this.country.Name || !this.country.Continent || !this.country.Region || !this.country.SurfaceArea || !this.country.IndepYear || !this.country.Population || !this.country.LifeExpectancy || !this.country.GNP || !this.country.GNPOld || !this.country.LocalName || !this.country.GovernmentForm || !this.country.HeadOfState || !this.country.Capital || !this.country.Code2){
               this.alert = 'Please fill in all required fields';
           } else {
-              let updateCountry = {
+              let newCountry = {
                 Code: this.country.Code,
                 Name: this.country.Name,
                 Continent: this.country.Continent,
@@ -110,19 +104,16 @@ export default {
                 Capital: this.country.Capital,
                 Code2: this.country.Code2
               }
-              this.$http.put('http://localhost/dataprocessing/public/api/country/update/'+this.$route.params.Code, updateCountry)
+              this.$http.post('http://localhost/dataprocessing/public/api/country/add', newCountry)
                 .then(function(response){
-                    this.$router.push({path: '/', query: {alert: 'Country Updated'}});
+                    this.$router.push({path: '/country', query: {alert: 'Country Added'}});
                 });
               e.preventDefault();
           }
           e.preventDefault();
       }
   },
-  created: function(){
-      this.fetchCountry(this.$route.params.Code);
-  },
-  components:{
+  components: {
       Alert
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="add container">
-      <Alert v-if="alert" v-bind:message="alert" />
-   <h1 class = "page-header">Add Country</h1>
-   <form v-on:submit="addCountry">
+  <div class="edit container">
+    <Alert v-if="alert" v-bind:message="alert" />
+   <h1 class = "page-header">Edit Country</h1>
+   <form v-on:submit="updateCountry">
        <div class="well">
            <h4>Country</h4>
            <div class="form-group">
@@ -83,11 +83,17 @@ export default {
     }
   },
   methods: {
-      addCountry(e){
+      fetchCountry(Code){
+          this.$http.get('http://localhost/dataprocessing/public/api/country/'+Code)
+        .then(function(response){
+            this.country = JSON.parse(JSON.stringify(response.body));
+        });
+      },
+      updateCountry(e){
           if(!this.country.Code || !this.country.Name || !this.country.Continent || !this.country.Region || !this.country.SurfaceArea || !this.country.IndepYear || !this.country.Population || !this.country.LifeExpectancy || !this.country.GNP || !this.country.GNPOld || !this.country.LocalName || !this.country.GovernmentForm || !this.country.HeadOfState || !this.country.Capital || !this.country.Code2){
               this.alert = 'Please fill in all required fields';
           } else {
-              let newCountry = {
+              let updateCountry = {
                 Code: this.country.Code,
                 Name: this.country.Name,
                 Continent: this.country.Continent,
@@ -104,16 +110,19 @@ export default {
                 Capital: this.country.Capital,
                 Code2: this.country.Code2
               }
-              this.$http.post('http://localhost/dataprocessing/public/api/country/add', newCountry)
+              this.$http.put('http://localhost/dataprocessing/public/api/country/update/'+this.$route.params.Code, updateCountry)
                 .then(function(response){
-                    this.$router.push({path: '/', query: {alert: 'Country Added'}});
+                    this.$router.push({path: '/country', query: {alert: 'Country Updated'}});
                 });
               e.preventDefault();
           }
           e.preventDefault();
       }
   },
-  components: {
+  created: function(){
+      this.fetchCountry(this.$route.params.Code);
+  },
+  components:{
       Alert
   }
 }
