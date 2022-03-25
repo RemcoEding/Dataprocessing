@@ -8,6 +8,7 @@ Druk op admin naast my ql
 Nieuwe database maken genaamd world en dan world.sql importeren
 Download en instaleer nodejs
 Restart computer
+Open xampp en start mysql en apache
 Navigeer in cmd naar C:\xampp\htdocs\dataprocessing\vue\vcountrys
 Gebruik de volgende commands: 
 npm install -g @vue-cli
