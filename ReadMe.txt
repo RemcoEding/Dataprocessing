@@ -1,5 +1,5 @@
 Download zip van github onder het pijltje van code
-Download xampp van het internet en installeer deze op je computer
+Download xampp 8.1.5 van het internet en installeer deze op je computer
 Na het installeren, restart computer
 Navigeer met Windows verkenner naar de map C:/xampp/htdocs
 Maak een nieuwe map aan genaamd dataprocessing
