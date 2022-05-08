@@ -3,8 +3,8 @@ Download xampp van het internet en installeer deze op je computer
 Na het installeren, restart computer
 Navigeer met Windows verkenner naar de map C:/xampp/htdocs
 Maak een nieuwe map aan genaamd dataprocessing
-Navigeer naar downloads en kopieer de zip file naar deze nietuwe map
-Pak de zip uit door rechtermuisknop op te doen en alles uitpakken
+Navigeer naar downloads en kopieer de zip file naar deze nieuwe map
+Pak de zip uit door rechtermuisknop op te doen en druk op alles uitpakken
 Verwijder de oude zip
 Open de map en Kopieer alle bestanden en plak deze in de map dataprocessing
 Open xampp en start mysql en apache
