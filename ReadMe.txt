@@ -7,6 +7,7 @@ Navigeer naar downloads en kopieer de zip file naar deze nieuwe map
 Pak de zip uit door rechtermuisknop op te doen en druk op alles uitpakken
 Verwijder de oude zip
 Open de map en Kopieer alle bestanden en plak deze in de map dataprocessing
+Verwijder de mao dataprocessing-master
 Open xampp en start mysql en apache
 Druk op admin naast mysql
 Nieuwe database maken genaamd world en dan naar importeren en bestand kiezen
