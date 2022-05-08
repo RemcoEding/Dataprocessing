@@ -1,0 +1,70 @@
+    <?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="countrys">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="country" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="country">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Continent" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element name="SurfaceArea" type="xs:float"/>
+      <xs:element name="IndepYear" type="xs:int"/>
+      <xs:element name="Population" type="xs:integer"/>
+      <xs:element name="LifeExpectancy" type="xs:float"/>
+      <xs:element name="GNP" type="xs:float"/>
+      <xs:element name="GNPOld" type="xs:float"/>
+      <xs:element name="LocalName" type="xs:string"/>
+      <xs:element name="GovernmentForm" type="xs:string"/>
+      <xs:element name="HeadOfState" type="xs:string"/>
+      <xs:element name="Capital" type="xs:integer"/>
+      <xs:element name="Code2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="citys">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="city" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="city">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="ID" type="xs:integer"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="CountryCode" type="xs:string"/>
+      <xs:element name="District" type="xs:string"/>
+      <xs:element name="Population" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="countrylanguages">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="countrylanguage" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="countrylanguage">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="ID" type="xs:integer"/>
+      <xs:element name="CountryCode" type="xs:string"/>
+      <xs:element name="Language" type="xs:string"/>
+      <xs:element name="IsOfficial" type="xs:string"/>
+      <xs:element name="Percentage" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
