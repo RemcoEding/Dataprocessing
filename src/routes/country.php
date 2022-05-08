@@ -53,7 +53,12 @@ $app->get('/api/country/{code}' , function(Request $request, Response $response)
         $stmt = $db->query($sql);
         $world = $stmt->fetch(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($world);
+        if ($world == false){
+            echo 'ERROR 404 Country not found';
+        }
+        else{
+            echo json_encode($world);
+        }
 
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
@@ -248,7 +253,12 @@ $app->get('/api/city/{ID}' , function(Request $request, Response $response){
         $stmt = $db->query($sql);
         $world = $stmt->fetch(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($world);
+        if ($world == false){
+            echo 'ERROR 404 City not found';
+        }
+        else{
+            echo json_encode($world);
+        }
 
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
@@ -391,7 +401,12 @@ $app->get('/api/countrylanguage/{ID}' , function(Request $request, Response $res
         $stmt = $db->query($sql);
         $world = $stmt->fetch(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($world);
+        if ($world == false){
+            echo 'ERROR 404 Countrylanguage not found';
+        }
+        else{
+            echo json_encode($world);
+        }
 
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
