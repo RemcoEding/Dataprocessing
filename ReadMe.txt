@@ -1,7 +1,7 @@
 Download zip van github
-Download xampp
-Restart computer
-Navigeer met verkenner naar de map C:/xampp/htdocs
+Download xampp van het internet en installeer deze op je computer
+Na het installeren, restart computer
+Navigeer met Windows verkenner naar de map C:/xampp/htdocs
 Maak een bestand aan genaamd dataprocessing en zet hier alle losse bestanden in, niet het gezipte mapje.
 Open xampp en start mysql en apache
 Druk op admin naast my ql
