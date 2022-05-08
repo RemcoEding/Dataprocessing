@@ -2,14 +2,20 @@ Download zip van github onder het pijltje van code op de vorige pagina
 Download xampp van het internet en installeer deze op je computer
 Na het installeren, restart computer
 Navigeer met Windows verkenner naar de map C:/xampp/htdocs
-Maak een bestand aan genaamd dataprocessing en zet hier alle losse bestanden in, niet het gezipte mapje.
+Maak een nieuwe map aan genaamd dataprocessing
+Navigeer naar downloads en kopieer de zip file naar deze nietuwe map
+Pak de zip uit door rechtermuisknop op te doen en alles uitpakken
+Verwijder de oude zip
+Open de map en Kopieer alle bestanden en plak deze in de map dataprocessing
 Open xampp en start mysql en apache
-Druk op admin naast my ql
-Nieuwe database maken genaamd world en dan world.sql importeren
-Download en instaleer nodejs vanaf het internet
+Druk op admin naast mysql
+Nieuwe database maken genaamd world en dan naar importeren en bestand kiezen
+Navigeer naar C:/xampp/htdocs/dataprocessing en kies voor world.sql
+Download en instaleer node.js versie 18.1.0 vanaf het internet
 Restart computer
 Open xampp en start mysql en apache
-Navigeer in cmd naar C:\xampp\htdocs\dataprocessing\vue\vcountrys
+Open cmd en type in: cd .. en dan enter. vervolg dit tot je bij c:/ bent
+Type nu: cd xampp\htdocs\dataprocessing\vue\vcountrys
 Gebruik de volgende commands: 
 npm install -g @vue/cli
 npm install
