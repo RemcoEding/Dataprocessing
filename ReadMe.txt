@@ -15,8 +15,8 @@ Navigeer naar C:/xampp/htdocs/dataprocessing en kies voor world.sql
 Download en instaleer node.js versie 18.1.0 vanaf het internet
 Restart computer
 Open xampp en start mysql en apache
-Open cmd en type in:cd .. en dan enter. herhaal dit tot je bij c:\ bent
-Type nu:cd xampp\htdocs\dataprocessing\vue\vcountrys
+Open cmd en type in:cd .. en druk dan enter. herhaal dit tot je bij c:\ bent
+Type nu:cd xampp\htdocs\dataprocessing\vue\vcountrys en druk op enter
 Gebruik nu de volgende commands: 
 npm install -g @vue/cli
 npm install
