@@ -16,7 +16,7 @@ Restart computer
 Open xampp en start mysql en apache
 Open cmd en type in:cd .. en dan enter. herhaal dit tot je bij c:\ bent
 Type nu:cd xampp\htdocs\dataprocessing\vue\vcountrys
-Gebruik de volgende commands: 
+Gebruik nu 1 voor 1 de volgende commands: 
 npm install -g @vue/cli
 npm install
 npm run dev
